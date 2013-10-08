@@ -14,12 +14,10 @@ if($_POST)
       {
         $userName=  htmlspecialchars($userName);    
         $pass = htmlspecialchars($pass);   
-        $connection=dbConn();  
-        if($connection)
-        {
-            
+        $connection=dbConn();              
         $sql='INSERT INTO users(user_name,password) VALUES ("'.$userName.'","'.$pass.'")';
-        mysqli_query($connection,$sql);
+        if(mysqli_query($connection,$sql))
+        {
             echo 'Регистрацията е успешена';
             header('Location:index.php'); 
         }
