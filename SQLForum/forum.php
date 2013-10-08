@@ -27,6 +27,7 @@ mysqli_query($connection, 'SET NAMES utf8');
 <?php
 $invert="DESC";
 $group='';
+$admin = FALSE;
 if($_POST)
     {
     $invert=$_POST['sort'];
@@ -36,15 +37,16 @@ if($_POST)
 
 if(isset($_SESSION['admin']))
       {
-    echo '<form method="GET">изтрии пост № <input type="text" name="postDel"/> 
-    <input type="submit" value="изтрии"/></form>';
+    $admin = TRUE;
     if ($_GET)
          {
     $postDel="DELETE FROM `msg` WHERE `msg_id`=".$_GET['postDel'];       
-    IF(mysqli_query($connection, $postDel)){echo 'изтрито';} 
-         }
-      }
+    IF(mysqli_query($connection, $postDel)){echo 'изтрито';}
 
+         }
+        
+      }
+else  {echo 'нямате права за тази операция';}      
 $sql='SELECT msg_id,msg_date,msg_user,msg_title,msg_txt,
           msg_group FROM msg '.$group.' ORDER BY msg_date '.$invert;
 $q = mysqli_query($connection, $sql);
@@ -54,12 +56,16 @@ if (!$q) {
 }
 if ($q->num_rows > 0) 
 {
-    echo '<table><tr><td>№</td><td>Дата</td><td>Потребител</td><td>Заглавие
+
+    echo '<table><tr><td>изтр.</td><td>Дата</td><td>Потребител</td><td>Заглавие
         </td><td>Съобщение</td><td>Група</td></tr>';
     while ($row = $q->fetch_assoc()) 
     {
-    echo '<tr><td>' . $row['msg_id'] . '</td>
-    <td>' . date('d-m H:i:s',strtotime($row['msg_date'])) . '</td>
+    echo '<tr>';
+    if($admin)
+    {echo '<td><a href="forum.php?postDel='.$row['msg_id'].'">изтр.</a></td>';}
+    else {echo '<td></td>';}
+    echo '<td>' . date('d-m H:i:s',strtotime($row['msg_date'])) . '</td>
     <td>' . $row['msg_user'] . '</td><td>' . $row['msg_title'] . '</td>
     <td>' . $row['msg_txt'] . '</td><td>' . $row['msg_group'] . '</td></tr>';
     }
@@ -72,7 +78,7 @@ else
 }
 else
 {
-header('Location:\\SQLForum\index.php'); 
+header('Location: index.php'); 
 }
 include 'includes/footer.php';
 ?>

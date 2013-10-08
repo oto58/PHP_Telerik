@@ -30,7 +30,7 @@ $connection=dbConn();
   VALUES("'.$userName.'","'.$title.'","'.$msg.'","'.$group.'")';
   IF(mysqli_query($connection, $sql))
     {
-  header('Location:\\SQLForum\forum.php'); 
+  header('Location: forum.php'); 
     }
   else 
     {
@@ -54,7 +54,7 @@ echo 'Няма връзка със сървъра, моля опитайте п�
 }
 else
 {
- header('Location:\\SQLForum\index.php'); 
+ header('Location: index.php'); 
 }
 include 'includes/footer.php';
 ?>

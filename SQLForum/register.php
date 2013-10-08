@@ -10,7 +10,7 @@ if($_POST)
     switch (verifyLen($userName,$pass))     
    {
       case 0:
-        if(verifyExsist($userName,$pass)>1)
+        if(verifyExsist($userName,$pass)>2)
       {
         $userName=  htmlspecialchars($userName);    
         $pass = htmlspecialchars($pass);   
@@ -21,7 +21,7 @@ if($_POST)
         $sql='INSERT INTO users(user_name,password) VALUES ("'.$userName.'","'.$pass.'")';
         mysqli_query($connection,$sql);
             echo 'Регистрацията е успешена';
-            header('Location:\\SQLForum\index.php'); 
+            header('Location:index.php'); 
         }
       }
       else {echo 'Съществуващ потребител';}
@@ -42,7 +42,7 @@ echo 'моля опитайте по-късно';
 <br><hr>
 <form method="POST">
 <div>потребител<input type="text" name="userName">от 5 до 12 знака</div>
-<div>парола<input type="text" name="pass">от 5 до 12 знака</div>
+<div>парола<input type="password" name="pass">от 5 до 12 знака</div>
 <div><input type="submit" value="регистрирай"></div>
 </form>
 <?php
