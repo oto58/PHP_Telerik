@@ -1,0 +1,56 @@
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>radio</title>
+    </head>
+    <body>
+        <h1>open console</h1>
+        <ul id="list" onclick="clicked(event)">
+        	<li>
+        		<input name="choices[]" type="radio" onchange="onChange()" value="1">1
+        	</li>
+        	<li>
+        		<input name="choices[]" type="radio" onchange="onChange()" value="2">2
+        	</li>
+        	<li>
+        		<input name="choices[]" type="radio" onchange="onChange()" value="3">3
+        	</li>
+        	<li>
+        		<input name="choices[]" type="radio" onchange="onChange()" value="4">4    
+        	</li>
+        </ul>
+            <p id="eventListner"></p>
+            <p id="onClick"></p>
+            <p id="onChange"></p>
+        </div>
+    	<script>
+        'use strict';
+            var x = document.getElementById('list').addEventListener('click', radioList);
+
+            function radioList() {
+                var radio = event.path[0].defaultValue;
+                console.log(radio);
+                if (radio) {
+                    document.getElementById('eventListner').innerHTML = 'eventListner selected '+radio;
+                }
+            }
+            function clicked(event) {
+                var radio = event.path[0].defaultValue;
+                console.log(radio);
+                if (radio) {
+                    document.getElementById('onClick').innerHTML = 'onClick selected '+radio;
+                }
+            }
+            var radios = document.getElementsByName('choices[]');
+            function onChange() {
+                for (var i = 0; i < radios.length; i++) {
+                    var radio = radios[i];
+                    if (radio.checked) {
+                    document.getElementById('onChange').innerHTML = 'onChange selected '+radio.value;
+                    console.log(radio.value);
+                    }
+                }
+            }
+            </script>
+    </body>
+</html>

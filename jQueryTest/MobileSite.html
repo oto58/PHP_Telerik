@@ -1,0 +1,104 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+        <title>Mobile</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Language" content="bg" />
+    </head>
+<div data-role="page" id="pageOne" class="ui-btn-active">
+	<div data-role="header">
+		<h1>One</h1>
+         <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+<div data-role="navbar" data-grid="c">
+    <ul>
+        <li><a href="#pageOne" data-icon="grid">One</a></li>
+        <li><a href="#pageTwo">Two</a></li>
+        <li><a href="#pageTree">Three</a></li>
+        <li><a href="#pageFour">Four</a></li>
+    </ul>
+</div><!-- /navbar -->
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>Hello world</p>
+<p>I'm first in the source order so I'm shown as the page.</p>
+
+	</div><!-- /content -->
+
+</div><!-- /page -->
+<div data-role="page" id="pageTwo">
+
+	<div data-role="header" style="overflow:hidden;">
+		<h1>Two</h1>
+        <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+<div data-role="navbar" data-grid="c">
+    <ul>
+        <li><a href="#pageOne" class="ui-btn-active">One</a></li>
+        <li><a href="#pageTwo">Two</a></li>
+        <li><a href="#pageTree">Three</a></li>
+        <li><a href="#pageFour">Four</a></li>
+    </ul>
+</div><!-- /navbar -->
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">	
+		<p>Hello world</p>
+<p>I'm the second in the source order so I'm hidden when the page loads. 
+    I'm just shown if a link that references my id is beeing clicked.</p>
+	</div><!-- /content -->
+
+</div><!-- /page -->
+<div data-role="page" id="pageTree">
+
+	<div data-role="header">
+		<h1>Three</h1>
+        <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+<div data-role="navbar" data-grid="c">
+    <ul>
+        <li><a href="#pageOne" class="ui-btn-active">One</a></li>
+        <li><a href="#pageTwo">Two</a></li>
+        <li><a href="#pageTree">Three</a></li>
+        <li><a href="#pageFour">Four</a></li>
+    </ul>
+</div><!-- /navbar -->
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">	
+		<p>Hello world</p>
+<p>I'm the third in the source order so I'm hidden when the page loads. 
+    I'm just shown if a link that references my id is beeing clicked.</p>
+	</div><!-- /content -->
+
+</div><!-- /page -->
+<div data-role="page" id="pageFour">
+
+	<div data-role="header">
+		<h1>Four</h1>
+        <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+<div data-role="navbar" data-grid="c">
+    <ul>
+        <li><a href="#pageOne" class="ui-btn-active">One</a></li>
+        <li><a href="#pageTwo">Two</a></li>
+        <li><a href="#pageTree">Three</a></li>
+        <li><a href="#pageFour">Four</a></li>
+    </ul>
+</div><!-- /navbar -->
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">	
+		<p>Hello world</p>
+<p>I'm the fourth in the source order so I'm hidden when the page loads. 
+    I'm just shown if a link that references my id is beeing clicked.</p>
+	</div><!-- /content -->
+
+</div><!-- /page -->
+    </body>
+</html>

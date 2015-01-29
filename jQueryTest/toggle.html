@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>slide demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+  
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+
+  <!--<script type="text/javascript" src="./myMobile.js"></script>-->
+<script>
+
+$(document).on('pageinit',  function(){
+/* ako e s ID a ne s class ne raboti sled submit
+ * za6toto si syzdava nova stranica i povtarq ID-to */
+    $( ".contain" ).on( "swipeleft",function(){
+        console.log('hi');
+        $(this).animate({left: "-300px"}, 1000)
+    });
+
+    $( ".contain" ).on( "swiperight",function(){
+        $(this).animate({left: "0px"}, 1000)
+    });
+
+});
+
+</script>
+
+  <style>
+  
+body {
+position: relative;
+top: -1.5em;
+}
+
+#header {
+position: relative;
+top: 0;
+left: 0;
+background:#aaa;
+width:100%;
+height:40px;
+text-align: center;
+}
+
+.contain {
+position: relative;
+left: 0;
+overflow: hidden; /* add this to contain floated children */
+width:800px;
+height: auto;
+background: #bbb;
+}
+
+#cent{
+padding-left: 50px;
+}
+
+#aside {
+position: relative;
+float: left;
+width: 250px;
+height: auto;
+background: #ccc;
+padding: 2em;
+text-align: center;
+}
+
+#base {
+position: relative;
+float: left;
+width: 250px;
+height: auto;
+background: #ddd;
+padding: 2em;
+text-align: center;
+}
+
+  </style>
+
+</head>
+<body>
+    <div id="header">
+        <h1>header</h1>
+    </div>
+<div class="contain">
+    <p id="cent">You can move this if you swipe</p>
+    <div id="base">
+        <p>left</p>
+        <form>
+        <input type="text" />
+        <input type="text" />
+        <button type="submit">OK</button>
+        </form>
+    </div>
+    <div id="aside">
+        <p>right</p>
+        <form>
+            <textarea rows="10" cols="50"></textarea>
+        <button type="submit">OK</button>
+        </form>
+    </div>
+</div>
+
+ 
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>live</title>
+    </head>
+    <body>
+        <h1>open console</h1>
+        <ul id="list" >
+        	<li>
+        		<input name="choices" type="radio" value="1">1
+        	</li>
+        	<li>
+        		<input name="choices" type="radio" value="2">2
+        	</li>
+        	<li>
+        		<input name="choices" type="radio" value="3">3
+        	</li>
+        	<li>
+        		<input name="choices" type="radio" value="4">4
+        	</li>
+        </ul>
+        <div id="show"></div>
+    	<script>
+    		var testLive = document.getElementsByTagName('li');
+    		var testStatic = document.querySelectorAll('li');
+    		var show = document.getElementById('show');
+
+            show.innerHTML += '<p>Before adding new element</p>';
+            show.innerHTML += '<p>Live -'+testLive.length+'</p>';
+            show.innerHTML += '<p>Static -'+testStatic.length+'</p>';
+            console.log('Before adding new element');
+    		console.log('Live ->'+testLive.length);
+    		console.log('Static ->'+testStatic.length);
+
+    		setTimeout(function(){
+    			document.querySelector('ul').innerHTML += '<li><input type="radio" name="choices" value="5">NEW</li>';
+    		show.innerHTML += '<p>After adding new element</p>';
+            show.innerHTML += '<p>Live -'+testLive.length+'</p>';
+            show.innerHTML += '<p>Static -'+testStatic.length+'</p>';
+            console.log('After adding new element');
+    		console.log('Live ->'+testLive.length);
+    		console.log('Static ->'+testStatic.length);
+    		}, 2000);
+            </script>
+    </body>
+</html>
